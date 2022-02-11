@@ -47,9 +47,9 @@ class TodoItemController extends AppBaseController
     {
         $todo = $this->todoService->createTodoItem([
             'name' => $request->name,
+            'content' => $request->content,
             'level' => $request->level,
             'deadline' => $request->deadline,
-            'content' => $request->content,
             'user_name' => $request->user_name,
             'is_top' => $request->is_top,
             'finish' => $request->finish

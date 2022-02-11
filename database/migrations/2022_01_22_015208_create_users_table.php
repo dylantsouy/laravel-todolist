@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name', 100)->unique();
-            $table->enum('sex', ['F','M'])->default('M');
+            $table->enum('sex', ['F','M']);
             $table->timestamps();
             $table->softDeletes();
         });

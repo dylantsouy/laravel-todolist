@@ -25,9 +25,11 @@ class TodoItem extends Model
     protected $fillable = [
         'name',
         'level',
+        'content',
         'deadline',
         'user_name',
-        'finish'
+        'finish',
+        "is_top"
     ];
 
     /**
@@ -38,7 +40,9 @@ class TodoItem extends Model
     protected $casts = [
         'id' => 'string',
         'name' => 'string',
+        'content' => 'string',
         'level' => 'int',
+        'is_top' => 'boolean',
         'finish' => 'boolean',
         'user_name' => 'string',
         'deadline' => 'datetime',
@@ -46,6 +50,6 @@ class TodoItem extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User','user_name');
+        return $this->belongsTo('App\User', 'user_name');
     }
 }
