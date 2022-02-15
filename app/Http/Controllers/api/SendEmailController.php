@@ -27,14 +27,12 @@ class SendEmailController extends AppBaseController
     public function index()
     {
         $todos = $this->todoService->getDeadline();
-        $a = [];
         foreach ($todos as $todo) {
             $deadline = $todo->deadline;
             $name = $todo->user_name;
             $user = $this->userService->getUserByName($name);
             // One Day Later
             if (Carbon::tomorrow()->toDateString() === Carbon::parse($deadline)->toDateString()) {
-                array_push($a, $todo->name);
                 Mail::to($user->email)->send(new NotifyMail(1, $todo));
             }
             // Five Days Later
@@ -44,7 +42,7 @@ class SendEmailController extends AppBaseController
         }
         return response()->json(
             [
-                'message' => $a
+                'message' => 'success'
             ],
             200
         );
