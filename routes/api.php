@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\TodoItemController;
 use App\Http\Controllers\api\UserController;
+use App\Http\Controllers\api\SendEmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,5 @@ Route::group(['prefix' => 'user'], function () {
     Route::put('/updateUser', [UserController::class, 'updateUser']);
     Route::delete('/deleteUser', [UserController::class, 'deleteUser']);
 });
+
+Route::get('send-email', [SendEmailController::class, 'index']);

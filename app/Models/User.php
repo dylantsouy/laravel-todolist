@@ -22,6 +22,7 @@ class User extends Model
     protected $fillable = [
         'name',
         'sex',
+        'email'
     ];
 
     /**
@@ -31,11 +32,13 @@ class User extends Model
      */
     protected $casts = [
         'id' => 'string',
+        'email' => 'string',
         'name' => 'string',
         'sex' => 'string',
     ];
 
-    public function todos(){
+    public function todos()
+    {
         return $this->hasMany('App\TodoItem');
     }
 }

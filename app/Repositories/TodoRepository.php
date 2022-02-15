@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use App\Models\TodoItem;
 use App\Repositories\BaseRepository;
 
@@ -89,5 +91,13 @@ class TodoRepository extends BaseRepository
     public function restoryDeletedTodoItem($id)
     {
         return $this->model->withTrashed()->find($id)->restore();
+    }
+
+    public function getDeadline()
+    {
+        $FiveDaysLater = Carbon::now()->subDays(-5);
+        $tomorrow = Carbon::tomorrow();
+        return DB::table('todo_items')->whereDate('deadline',  $tomorrow)
+            ->orWhereDate('deadline',  $FiveDaysLater)->get();
     }
 }

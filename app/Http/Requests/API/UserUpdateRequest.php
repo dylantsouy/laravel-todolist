@@ -25,7 +25,8 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'id' => 'required|string|exists:users,id',
-            'name' => 'required|string|unique:users,name,' . $this->id, //validation on multiple columns
+            'email' => 'required|string|unique:users,email' . $this->id, //validation on multiple columns
+            'name' => 'required|string|unique:users,name' . $this->id, //validation on multiple columns
             'sex' => 'required|string|in:F,M',
         ];
     }

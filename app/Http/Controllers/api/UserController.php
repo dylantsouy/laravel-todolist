@@ -41,6 +41,7 @@ class UserController extends AppBaseController
     {
         $user = $this->userService->createUser([
             'name' => $request->name,
+            'email' => $request->email,
             'sex' => $request->sex,
         ]);
 
@@ -63,6 +64,7 @@ class UserController extends AppBaseController
             $request->id,
             [
                 'name' => $request->name,
+                'email' => $request->email,
                 'sex' => $request->sex,
             ],
         );

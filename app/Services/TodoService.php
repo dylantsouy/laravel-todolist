@@ -48,4 +48,9 @@ class TodoService
     {
         return $this->todoRepository->restoryDeletedTodoItem($id);
     }
+    
+    public function getDeadline()
+    {
+        return $this->todoRepository->getDeadline();
+    }
 }

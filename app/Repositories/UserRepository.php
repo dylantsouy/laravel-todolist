@@ -41,6 +41,11 @@ class UserRepository extends BaseRepository
         return $this->model->all();
     }
 
+    public function getUserByName($name)
+    {
+        return $this->model->where('name','=',$name)->firstOrFail();
+    }
+
     public function createUser(array $attributes)
     {
         $model = $this->model->newInstance($attributes);

@@ -19,6 +19,11 @@ class UserService
         return $this->userRepository->getUsers();
     }
 
+    public function getUserByName($name)
+    {
+        return $this->userRepository->getUserByName($name);
+    }
+
     public function createUser(array $attributes)
     {
         return $this->userRepository->createUser($attributes);
